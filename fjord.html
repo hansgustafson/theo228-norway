@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Visit a Fjord | THEO 228 Norway, J-Term 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --snow: #F4F7F9;
+    --white: #FFFFFF;
+    --ink: #14273A;
+    --fjord: #4F6D85;
+    --frost: #DCE5EC;
+    --red: #C8102E;
+    --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--snow);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  a { color: var(--ink); text-underline-offset: 3px; }
+  a:hover { color: var(--red); }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+  /* Header and navigation */
+  .site-header {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .site-header .inner {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 2rem;
+  }
+  .wordmark {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+  .wordmark span { font-weight: 400; opacity: 0.75; }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.97rem;
+    padding: 0.25rem 0;
+    display: inline-block;
+  }
+  nav a:hover { color: var(--white); text-decoration: underline; }
+  nav a[aria-current="page"] { border-bottom: 2px solid var(--white); }
+  nav a.emergency {
+    background: var(--red);
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .emergency-mobile { display: none; }
+  @media (max-width: 720px) {
+    .site-header .inner { justify-content: space-between; }
+    .emergency-mobile {
+      display: inline-block;
+      color: var(--white);
+      text-decoration: none;
+      background: var(--red);
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+    nav li.nav-emergency { display: none; }
+    nav { width: 100%; overflow-x: auto; }
+    nav ul { flex-wrap: nowrap; padding-bottom: 0.25rem; }
+    nav a { white-space: nowrap; }
+  }
+
+  main { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Photo banner */
+  .hero-photo {
+    position: relative;
+    height: clamp(26rem, 68vh, 42rem);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(20,39,58,0) 35%, rgba(20,39,58,0.88) 100%);
+  }
+  .hero-text {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    color: var(--white);
+  }
+  .hero-text .subtitle { color: rgba(255,255,255,0.88); }
+  .credit {
+    position: absolute;
+    z-index: 1;
+    right: 0.75rem;
+    bottom: 0.4rem;
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .credit a { color: inherit; }
+  @media (min-width: 900px) {
+    /* Widen the photo so the person sits right of the title */
+    .hero-photo img { inset: auto; top: 0; left: 0; width: 124%; height: 100%; object-position: 50% 12%; }
+    .hero-text h1 { font-size: clamp(2.6rem, 4.6vw, 3.9rem); max-width: 11ch; }
+  }
+  @media (max-width: 899px) {
+    /* On phones and tablets, the title sits below the photo */
+    .hero-photo { height: auto; }
+    .hero-photo img {
+      position: relative;
+      display: block;
+      height: clamp(15rem, 46vh, 26rem);
+      object-position: 50% 30%;
+    }
+    .hero-photo::after { display: none; }
+    .hero-text { position: static; padding: 1.5rem 1.25rem 2.25rem; }
+    .credit { top: 0.4rem; bottom: auto; }
+  }
+
+  .credit a:hover { color: var(--white); }
+
+  /* Hero */
+  .hero { padding: 0.5rem 0 2.75rem; }
+  .course-code { margin: 0 0 0.5rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.3rem, 6.5vw, 4.4rem);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+    text-shadow: 0 1px 12px rgba(20,39,58,0.35);
+  }
+  .subtitle {
+    margin: 1rem 0 0;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    color: var(--fjord);
+    max-width: 38ch;
+  }
+
+  /* Route line: the four legs of the course */
+  .route {
+    list-style: none;
+    margin: 2.75rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+  }
+  .route::before {
+    content: "";
+    position: absolute;
+    top: 0.55rem;
+    left: 0.55rem;
+    right: 0.55rem;
+    border-top: 2px solid var(--ink);
+  }
+  .route li { position: relative; padding-top: 1.9rem; padding-right: 0.75rem; }
+  .route li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--snow);
+    border: 3px solid var(--ink);
+  }
+  .route li.abroad::before { background: var(--ink); }
+  .route a { text-decoration: none; display: block; }
+  .route .place { display: block; font-weight: 700; font-size: 1.15rem; }
+  .route .dates { display: block; color: var(--fjord); font-size: 0.95rem; }
+  .route a:hover .place { color: var(--red); }
+  @media (max-width: 640px) {
+    .route { grid-template-columns: 1fr; gap: 1.1rem; }
+    .route::before {
+      top: 0.55rem; bottom: 2.6rem; left: 0.55rem; right: auto;
+      border-top: 0; border-left: 2px solid var(--ink);
+    }
+    .route li { padding: 0 0 0 2.1rem; }
+  }
+
+  .today-jump {
+    display: none;
+    margin-top: 2rem;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border-radius: 3px;
+  }
+  .today-jump.is-visible { display: inline-block; }
+  .today-jump:hover { color: var(--white); text-decoration: underline; }
+
+  /* Notices */
+  .notices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--frost);
+    border: 1px solid var(--frost);
+    margin: 0 0 3.5rem;
+  }
+  .notice { background: var(--white); padding: 1.25rem 1.25rem 1.4rem; }
+  .notice h2 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 700; }
+  .notice p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 860px) { .notices { grid-template-columns: 1fr; } }
+
+  /* Schedule */
+  .schedule-head { max-width: 42rem; margin-bottom: 1.5rem; }
+  .schedule-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin: 0 0 0.6rem; letter-spacing: -0.01em; }
+  .schedule-head p { margin: 0; color: var(--fjord); }
+
+  .leg { margin: 2.5rem 0 0; scroll-margin-top: 1rem; }
+  .leg-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0 0 0.75rem;
+    padding-left: 1.85rem;
+    position: relative;
+  }
+  .leg-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background: var(--snow);
+  }
+  .leg.abroad .leg-title::before { background: var(--ink); }
+  .leg-title h3 { margin: 0; font-size: 1.4rem; }
+  .leg-title .stay { color: var(--fjord); font-size: 0.97rem; }
+
+  .days { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--frost); }
+  .day {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0.25rem 1.5rem;
+    padding: 1rem 0 1rem 0.9rem;
+    border-bottom: 1px solid var(--frost);
+    border-left: 4px solid transparent;
+    scroll-margin-top: 1rem;
+  }
+  .day .when { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .day .where { margin: 0 0 0.2rem; font-weight: 500; }
+  .day .what { margin: 0; max-width: 62ch; }
+  .day.free .what { color: var(--fjord); }
+  .day.is-today { background: var(--white); border-left-color: var(--red); }
+  .today-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.05rem 0.45rem;
+    border-radius: 3px;
+    vertical-align: 0.1em;
+  }
+  .tbc { color: var(--fjord); font-style: italic; }
+  @media (max-width: 640px) {
+    .day { grid-template-columns: 1fr; padding-left: 0.75rem; }
+  }
+
+  /* Links */
+  .links { margin: 4rem 0 0; padding: 2.5rem 0 0; border-top: 2px solid var(--ink); }
+  .links h2 { margin: 0 0 1.25rem; font-size: 1.6rem; }
+  .link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 2.5rem;
+  }
+  .link-list li { border-bottom: 1px solid var(--frost); }
+  .link-list a { display: block; padding: 0.8rem 0; font-weight: 500; }
+  .link-list .note { display: block; font-weight: 400; color: var(--fjord); font-size: 0.93rem; }
+  @media (max-width: 640px) { .link-list { grid-template-columns: 1fr; } }
+
+  footer {
+    max-width: 68rem;
+    margin: 4rem auto 0;
+    padding: 1.5rem 1.25rem 3rem;
+    color: var(--fjord);
+    font-size: 0.93rem;
+    border-top: 1px solid var(--frost);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  .band-painting { margin: 0 calc(50% - 50vw) 0; background: var(--ink); }
+  .band-painting img { display: block; width: 100%; height: auto; }
+  .band-painting figcaption { max-width: 68rem; margin: 0 auto; padding: 0.5rem 1.25rem 0.6rem; color: rgba(255,255,255,0.75); }
+  .band-painting figcaption a { color: inherit; }
+  @media (max-width: 720px) { .band-painting img { height: 14rem; object-fit: cover; object-position: 58% 50%; } }
+
+  .route.trip { margin: 0.5rem 0 1rem; max-width: 60rem; }
+  .route.trip .dates { font-size: 0.92rem; }
+
+  .band-photo { margin: 0 calc(50% - 50vw); position: relative; }
+  .band-photo img { display: block; width: 100%; height: clamp(16rem, 52vh, 34rem); object-fit: cover; object-position: 50% 100%; }
+  .band-photo figcaption { position: absolute; right: 0.75rem; bottom: 0.4rem; margin: 0; color: rgba(255,255,255,0.8); }
+  .band-photo figcaption a { color: inherit; }
+
+  .map-wrap iframe { display: block; width: 100%; height: 70vh; min-height: 24rem; border: 1px solid var(--frost); background: var(--white); }
+  .button { display: inline-block; margin-top: 1rem; background: var(--ink); color: var(--white); text-decoration: none; font-weight: 700; padding: 0.65rem 1.1rem; border-radius: 3px; }
+  .button:hover { color: var(--white); text-decoration: underline; }
+
+  .page-head.single { grid-template-columns: 1fr; }
+  .call-list { list-style: none; margin: 0 0 1rem; padding: 0; max-width: 46rem; border-top: 1px solid var(--frost); }
+  .call-list li { border-bottom: 1px solid var(--frost); }
+  .call-list a, .call-list .row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.85rem 0.25rem; text-decoration: none; }
+  .call-list a:hover { background: var(--white); color: var(--ink); }
+  .call-list .num { font-weight: 800; font-size: 1.2rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .call-list .num.tbc { font-weight: 400; font-size: 1rem; }
+  .call-list .addr { color: var(--fjord); text-align: right; }
+  .call-list a .num { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+  .call-list.urgent { border-top: 0; }
+  .call-list.urgent li { border: 0; margin-bottom: 0.5rem; }
+  .call-list.urgent a { background: var(--red); color: var(--white); padding: 1rem 1.1rem; border-radius: 3px; }
+  .call-list.urgent a:hover { background: #A50D26; color: var(--white); }
+  .call-list.urgent .num { font-size: 1.7rem; text-decoration: none; }
+  .steps { margin: 0; padding-left: 1.4rem; max-width: 46rem; }
+  .steps li { padding: 0.4rem 0 0.4rem 0.3rem; }
+  .note { max-width: 46rem; color: var(--fjord); margin: 0.75rem 0 0; }
+  @media (max-width: 520px) { .call-list a, .call-list .row { flex-direction: column; gap: 0.15rem; } .call-list .addr { text-align: left; } }
+
+  /* Inner pages */
+  .page-head {
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    gap: 2.5rem;
+    align-items: start;
+    padding: 3rem 0 1rem;
+  }
+  .page-head h1 { max-width: none; text-shadow: none; }
+  .lede { font-size: 1.2rem; color: var(--fjord); max-width: 40ch; margin: 1rem 0 2rem; }
+  .toc ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .toc li { border-bottom: 1px solid var(--frost); }
+  .toc a { display: block; padding: 0.55rem 0; font-weight: 500; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .side-photo { margin: 0; }
+  .side-photo img { display: block; width: 100%; height: auto; }
+  figcaption { font-size: 0.78rem; color: var(--fjord); margin-top: 0.4rem; }
+  figcaption a { color: inherit; }
+  @media (max-width: 820px) {
+    .page-head { grid-template-columns: 1fr; padding-top: 2rem; }
+    .side-photo img { max-height: 22rem; object-fit: cover; object-position: 50% 62%; }
+  }
+
+  .topic { padding: 2.5rem 0 0.5rem; scroll-margin-top: 1rem; }
+  .topic h2 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    margin: 0 0 1rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--ink);
+  }
+  .facts { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+  .facts li { padding: 0.75rem 0; border-bottom: 1px solid var(--frost); }
+  .facts strong { font-weight: 700; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--frost); border: 1px solid var(--frost); max-width: 46rem; margin-bottom: 1rem; }
+  .card { background: var(--white); padding: 1.1rem 1.25rem; }
+  .card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+  .card p { margin: 0; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .intro-line { max-width: 46rem; margin: 0 0 1rem; }
+  .phrases { margin: 0; max-width: 46rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 2.5rem; }
+  .phrases div { display: flex; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--frost); }
+  .phrases dt { font-weight: 700; min-width: 7.5rem; }
+  .phrases dd { margin: 0; }
+  .phrases .say { color: var(--fjord); margin-left: 0.35rem; }
+  @media (max-width: 640px) { .phrases { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="wordmark" href="index.html">THEO 228 <span>J-Term 2027</span></a>
+    <a class="emergency emergency-mobile" href="emergency.html">Emergency</a>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="orientation.html">Orientation</a></li>
+        <li><a href="maps.html">Maps</a></li>
+        <li><a href="lillehammer.html">Lillehammer</a></li>
+        <li><a href="fjord.html" aria-current="page">Visit a Fjord</a></li>
+        <li class="nav-emergency"><a class="emergency" href="emergency.html">Emergency numbers</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<figure class="band-painting">
+  <img src="images/sognefjord-painting.jpg" width="1625" height="370" alt="Painting of a snowy log cabin on a rocky shore above an icy fjord, with sailing ships anchored below a mountain.">
+  <figcaption>Chrystian Breslauer, <cite>Winter Landscape from Norway (View of Sognefjord)</cite>, 19th century, detail. National Museum in Warsaw. Public domain, via <a href="https://commons.wikimedia.org/wiki/File:Chrystian_Breslauer_-_Winter_landscape_from_Norway_-view_of_Sognefjord-_-_MP_2589_MNW_-_National_Museum_in_Warsaw.jpg">Wikimedia Commons</a>.</figcaption>
+</figure>
+
+<section class="page-head single">
+  <div class="page-intro">
+    <h1>Visit a Fjord</h1>
+    <p class="lede">A guide for the free weekend, Fri, Jan 15 to Sun, Jan 17. The Nærøyfjord, a branch of the Sognefjord near the village of Flåm, is on the UNESCO World Heritage list, and the train ride there is one of the most scenic in Norway.</p>
+  </div>
+</section>
+
+<section class="topic" id="route">
+  <h2>The route</h2>
+  <ol class="route trip">
+    <li class="abroad"><span class="place">Oslo</span><span class="dates">Bergen Line train, about 4.5 to 5 hours</span></li>
+    <li class="abroad"><span class="place">Myrdal</span><span class="dates">Flåm Railway, about 1 hour</span></li>
+    <li class="abroad"><span class="place">Flåm</span><span class="dates">Optional boat through the Nærøyfjord, about 2 hours</span></li>
+    <li><span class="place">Gudvangen</span><span class="dates">Bus to Voss, then train back to Oslo</span></li>
+  </ol>
+  <p class="note">The simplest plan: leave Oslo early Friday morning, arrive in Flåm in the afternoon, spend Saturday there, and return Sunday. Either retrace the route by train, or take the boat to Gudvangen and return through Voss. Times change by season, so check every connection on <a href="https://www.vy.no/en">Vy</a> and the <a href="https://www.flamsbana.no/">Flåm Railway</a> site when you book.</p>
+</section>
+
+<section class="topic" id="booking">
+  <h2>Booking</h2>
+  <ul class="facts">
+    <li><strong>Trains.</strong> Book the Bergen Line on <a href="https://www.vy.no/en">Vy</a>. Look for "Minipris" fares, which are cheapest when booked early. The Flåm Railway is booked separately on its own site.</li>
+    <li><strong>Packages.</strong> <a href="https://www.norwaynutshell.com/">Norway in a Nutshell</a> sells the whole loop, trains, boat, and bus, as one ticket. It costs more but saves planning.</li>
+    <li><strong>Student discounts.</strong> Carry your student ID. Some fares and attractions offer reductions.</li>
+    <li><strong>Leave a margin.</strong> Winter storms sometimes delay or close the Bergen Line. Don't plan your return on the last train of Sunday. You must be back for class Monday morning at the Bishop's Office.</li>
+  </ul>
+</section>
+
+<section class="topic" id="stay">
+  <h2>Where to stay</h2>
+  <ul class="facts">
+    <li><strong>In Flåm.</strong> Options include the historic Fretheim Hotel near the station, Flåmsbrygga Hotel by the harbor, Flåm Marina apartments with kitchens, and Heimly Pensjonat, a smaller budget option. Flåm is small and some places close or reduce service in winter, so book early.</li>
+    <li><strong>Nearby.</strong> If Flåm is full, look in Aurland, about 10 minutes away by road.</li>
+    <li><strong>Searching.</strong> Use <a href="https://www.visitflam.com/">Visit Flåm</a> or a booking site. Share a room or apartment with classmates to cut costs.</li>
+  </ul>
+</section>
+
+<section class="topic" id="things-to-do">
+  <h2>Things to do in Flåm in winter</h2>
+  <ul class="facts">
+    <li><strong>The Flåm Railway.</strong> The ride itself is a highlight: a steep descent through tunnels and past frozen waterfalls.</li>
+    <li><strong>Fjord cruise.</strong> <a href="https://norwaysbest.com/en/flam/things-to-do/winter-cruise-naeroyfjord">Boats through the Nærøyfjord</a> run year-round, with fewer departures in winter. In long cold spells the inner fjord can freeze. The boat then follows an "ice route" on the Aurlandsfjord with a detour into the Nærøyfjord, and a bus connects Undredal and Gudvangen. Check the timetable before you plan your day around it.</li>
+    <li><strong>Snowshoeing.</strong> Guided tours go up to the Stegastein viewpoint above the Aurlandsfjord. <a href="https://www.fjordtours.com/en/norway/things-to-do/outdoor-activities/winter-activities/guided-winter-tours/snowshoeing-stegastein-scenic-viewpoint">Snowshoe tour</a> or <a href="https://www.fjordsafari.com/activities/winter">FjordSafari winter activities</a>.</li>
+    <li><strong>Ægir BrewPub.</strong> A <a href="https://www.aegirbrewery.com/?lang=en_GB">brewpub</a> in a Viking-style hall, with food as well as beer.</li>
+  </ul>
+</section>
+
+<section class="topic" id="before-you-go">
+  <h2>Before you go</h2>
+  <ul class="facts">
+    <li><strong>Email Hans your plans by Wed, Jan 13:</strong> who you're with, where you're going, when you leave and return, and how to reach you. <a href="mailto:hsgustafson@stthomas.edu?subject=THEO%20228%20weekend%20plans">hsgustafson@stthomas.edu</a></li>
+    <li><strong>Travel with others.</strong> Don't make this trip alone.</li>
+    <li><strong>Check the weather</strong> on <a href="https://www.yr.no/en">Yr</a>, the Norwegian weather service. The mountains along the route are much colder than Oslo.</li>
+    <li><strong>Budget.</strong> Trains, lodging, and meals add up quickly. Price everything before you commit.</li>
+  </ul>
+</section>
+
+<section class="topic" id="closer">
+  <h2>A fjord closer to home</h2>
+  <p class="intro-line">Oslo sits at the head of the Oslofjord. Its landscape is gentler than western Norway's, but the island ferries from Aker Brygge make an easy afternoon on the water, and they belong to Oslo's public transit system. Check whether your 30-day transit pass covers them when you receive it on Jan 11.</p>
+</section>
+
+<section class="topic" id="resources">
+  <h2>More information</h2>
+  <ul class="facts">
+    <li><a href="https://www.visitflam.com/">Visit Flåm</a>: activities, dining, and lodging</li>
+    <li><a href="https://flamtravelguide.com/flam-in-winter/">Visiting Flåm in winter</a></li>
+    <li><a href="https://www.nor-way.no/">Nor-Way Bus Express</a>: long-distance buses</li>
+    <li><a href="https://www.visitnorway.com/">Visit Norway</a>: the national tourist board</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>THEO 228, University of St. Thomas. Faculty: Hans Gustafson and Ryan Dulkin.</p>
+  <p>Last updated October 1, 2026.</p>
+</footer>
+
+</body>
+</html>

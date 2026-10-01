@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>THEO 228 Norway, J-Term 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --snow: #F4F7F9;
+    --white: #FFFFFF;
+    --ink: #14273A;
+    --fjord: #4F6D85;
+    --frost: #DCE5EC;
+    --red: #C8102E;
+    --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--snow);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  a { color: var(--ink); text-underline-offset: 3px; }
+  a:hover { color: var(--red); }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+  /* Header and navigation */
+  .site-header {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .site-header .inner {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 2rem;
+  }
+  .wordmark {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+  .wordmark span { font-weight: 400; opacity: 0.75; }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.97rem;
+    padding: 0.25rem 0;
+    display: inline-block;
+  }
+  nav a:hover { color: var(--white); text-decoration: underline; }
+  nav a[aria-current="page"] { border-bottom: 2px solid var(--white); }
+  nav a.emergency {
+    background: var(--red);
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .emergency-mobile { display: none; }
+  @media (max-width: 720px) {
+    .site-header .inner { justify-content: space-between; }
+    .emergency-mobile {
+      display: inline-block;
+      color: var(--white);
+      text-decoration: none;
+      background: var(--red);
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+    nav li.nav-emergency { display: none; }
+    nav { width: 100%; overflow-x: auto; }
+    nav ul { flex-wrap: nowrap; padding-bottom: 0.25rem; }
+    nav a { white-space: nowrap; }
+  }
+
+  main { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Photo banner */
+  .hero-photo {
+    position: relative;
+    height: clamp(26rem, 68vh, 42rem);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(20,39,58,0) 35%, rgba(20,39,58,0.88) 100%);
+  }
+  .hero-text {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    color: var(--white);
+  }
+  .hero-text .subtitle { color: rgba(255,255,255,0.88); }
+  .credit {
+    position: absolute;
+    z-index: 1;
+    right: 0.75rem;
+    bottom: 0.4rem;
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .credit a { color: inherit; }
+  @media (min-width: 900px) {
+    /* Widen the photo so the person sits right of the title */
+    .hero-photo img { inset: auto; top: 0; left: 0; width: 124%; height: 100%; object-position: 50% 12%; }
+    .hero-text h1 { font-size: clamp(2.6rem, 4.6vw, 3.9rem); max-width: 11ch; }
+  }
+  @media (max-width: 899px) {
+    /* On phones and tablets, the title sits below the photo */
+    .hero-photo { height: auto; }
+    .hero-photo img {
+      position: relative;
+      display: block;
+      height: clamp(15rem, 46vh, 26rem);
+      object-position: 50% 30%;
+    }
+    .hero-photo::after { display: none; }
+    .hero-text { position: static; padding: 1.5rem 1.25rem 2.25rem; }
+    .credit { top: 0.4rem; bottom: auto; }
+  }
+
+  .credit a:hover { color: var(--white); }
+
+  /* Hero */
+  .hero { padding: 0.5rem 0 2.75rem; }
+  .course-code { margin: 0 0 0.5rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.3rem, 6.5vw, 4.4rem);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+    text-shadow: 0 1px 12px rgba(20,39,58,0.35);
+  }
+  .subtitle {
+    margin: 1rem 0 0;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    color: var(--fjord);
+    max-width: 38ch;
+  }
+
+  /* Route line: the four legs of the course */
+  .route {
+    list-style: none;
+    margin: 2.75rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+  }
+  .route::before {
+    content: "";
+    position: absolute;
+    top: 0.55rem;
+    left: 0.55rem;
+    right: 0.55rem;
+    border-top: 2px solid var(--ink);
+  }
+  .route li { position: relative; padding-top: 1.9rem; padding-right: 0.75rem; }
+  .route li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--snow);
+    border: 3px solid var(--ink);
+  }
+  .route li.abroad::before { background: var(--ink); }
+  .route a { text-decoration: none; display: block; }
+  .route .place { display: block; font-weight: 700; font-size: 1.15rem; }
+  .route .dates { display: block; color: var(--fjord); font-size: 0.95rem; }
+  .route a:hover .place { color: var(--red); }
+  @media (max-width: 640px) {
+    .route { grid-template-columns: 1fr; gap: 1.1rem; }
+    .route::before {
+      top: 0.55rem; bottom: 2.6rem; left: 0.55rem; right: auto;
+      border-top: 0; border-left: 2px solid var(--ink);
+    }
+    .route li { padding: 0 0 0 2.1rem; }
+  }
+
+  .today-jump {
+    display: none;
+    margin-top: 2rem;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border-radius: 3px;
+  }
+  .today-jump.is-visible { display: inline-block; }
+  .today-jump:hover { color: var(--white); text-decoration: underline; }
+
+  /* Notices */
+  .notices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--frost);
+    border: 1px solid var(--frost);
+    margin: 0 0 3.5rem;
+  }
+  .notice { background: var(--white); padding: 1.25rem 1.25rem 1.4rem; }
+  .notice h2 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 700; }
+  .notice p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 860px) { .notices { grid-template-columns: 1fr; } }
+
+  /* Schedule */
+  .schedule-head { max-width: 42rem; margin-bottom: 1.5rem; }
+  .schedule-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin: 0 0 0.6rem; letter-spacing: -0.01em; }
+  .schedule-head p { margin: 0; color: var(--fjord); }
+
+  .leg { margin: 2.5rem 0 0; scroll-margin-top: 1rem; }
+  .leg-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0 0 0.75rem;
+    padding-left: 1.85rem;
+    position: relative;
+  }
+  .leg-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background: var(--snow);
+  }
+  .leg.abroad .leg-title::before { background: var(--ink); }
+  .leg-title h3 { margin: 0; font-size: 1.4rem; }
+  .leg-title .stay { color: var(--fjord); font-size: 0.97rem; }
+
+  .days { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--frost); }
+  .day {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0.25rem 1.5rem;
+    padding: 1rem 0 1rem 0.9rem;
+    border-bottom: 1px solid var(--frost);
+    border-left: 4px solid transparent;
+    scroll-margin-top: 1rem;
+  }
+  .day .when { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .day .where { margin: 0 0 0.2rem; font-weight: 500; }
+  .day .what { margin: 0; max-width: 62ch; }
+  .day.free .what { color: var(--fjord); }
+  .day.is-today { background: var(--white); border-left-color: var(--red); }
+  .today-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.05rem 0.45rem;
+    border-radius: 3px;
+    vertical-align: 0.1em;
+  }
+  .tbc { color: var(--fjord); font-style: italic; }
+  @media (max-width: 640px) {
+    .day { grid-template-columns: 1fr; padding-left: 0.75rem; }
+  }
+
+  /* Links */
+  .links { margin: 4rem 0 0; padding: 2.5rem 0 0; border-top: 2px solid var(--ink); }
+  .links h2 { margin: 0 0 1.25rem; font-size: 1.6rem; }
+  .link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 2.5rem;
+  }
+  .link-list li { border-bottom: 1px solid var(--frost); }
+  .link-list a { display: block; padding: 0.8rem 0; font-weight: 500; }
+  .link-list .note { display: block; font-weight: 400; color: var(--fjord); font-size: 0.93rem; }
+  @media (max-width: 640px) { .link-list { grid-template-columns: 1fr; } }
+
+  footer {
+    max-width: 68rem;
+    margin: 4rem auto 0;
+    padding: 1.5rem 1.25rem 3rem;
+    color: var(--fjord);
+    font-size: 0.93rem;
+    border-top: 1px solid var(--frost);
+  }
+  footer p { margin: 0 0 0.35rem; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="wordmark" href="index.html">THEO 228 <span>J-Term 2027</span></a>
+    <a class="emergency emergency-mobile" href="emergency.html">Emergency</a>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="orientation.html">Orientation</a></li>
+        <li><a href="maps.html">Maps</a></li>
+        <li><a href="lillehammer.html">Lillehammer</a></li>
+        <li><a href="fjord.html">Visit a Fjord</a></li>
+        <li class="nav-emergency"><a class="emergency" href="emergency.html">Emergency numbers</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-photo">
+  <img src="images/banner-1000.jpg"
+       srcset="images/banner-1000.jpg 1000w, images/banner-2000.jpg 2000w"
+       sizes="100vw"
+       alt="A person in a winter coat stands on a snowy hilltop at dusk, looking out over the lights of a city below.">
+  <div class="hero-text">
+    <p class="course-code">THEO 228, J-Term 2027</p>
+    <h1>From Frozen Lakes to Frosty Fjords</h1>
+    <p class="subtitle">Dialogue, Diversity, and Leadership in Minnesota and Norway</p>
+  </div>
+  <p class="credit">Photo: <a href="https://unsplash.com/photos/2brTcibxOAM">Thomas Bjørnstad on Unsplash</a></p>
+</section>
+
+<main>
+
+  <section class="hero">
+
+    <ol class="route" aria-label="Where we are, and when">
+      <li><a href="#minnesota-before"><span class="place">Minnesota</span><span class="dates">Jan 4 to 7</span></a></li>
+      <li class="abroad"><a href="#lillehammer"><span class="place">Lillehammer</span><span class="dates">Jan 8 to 11</span></a></li>
+      <li class="abroad"><a href="#oslo"><span class="place">Oslo</span><span class="dates">Jan 11 to 24</span></a></li>
+      <li><a href="#minnesota-after"><span class="place">Minnesota</span><span class="dates">Jan 25 to 29</span></a></li>
+    </ol>
+
+    <a class="today-jump" id="today-jump" href="#">See today's schedule</a>
+  </section>
+
+  <section class="notices" aria-label="Before you go">
+    <div class="notice">
+      <h2>Pre-program meeting</h2>
+      <p>Thursday, Nov 5, 12 to 1 pm, at the Jay Phillips Center, 2057 Portland Ave, St. Thomas.</p>
+    </div>
+    <div class="notice">
+      <h2>Flights</h2>
+      <p>Your flight is included in the program cost, and St. Thomas books it for you. You must travel with the group to and from Norway.</p>
+    </div>
+    <div class="notice">
+      <h2>Free weekend plans</h2>
+      <p>By Wed, Jan 13, email Hans your plans for Jan 15 to 17: who you're with, where you're going, when you leave and return, and how to reach you. Email: <a href="mailto:hsgustafson@stthomas.edu?subject=THEO%20228%20weekend%20plans">hsgustafson@stthomas.edu</a>.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="schedule-title">
+    <div class="schedule-head">
+      <h2 id="schedule-title">Course schedule</h2>
+      <p>Times may still shift as Dialogpilotene finalizes sessions. During the trip, changes go out in the WhatsApp group. Full details and assignments are on Canvas.</p>
+    </div>
+
+    <div class="leg" id="minnesota-before">
+      <div class="leg-title"><h3>Minnesota</h3><span class="stay">Arrange your own housing</span></div>
+      <ul class="days">
+        <li class="day" data-start="2027-01-04">
+          <div class="when">Mon, Jan 4</div>
+          <div><p class="where">Jay Phillips Center, St. Thomas</p>
+          <p class="what">9 am to 3 pm. Class, with a live Zoom session with Dialogpilotene.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-05">
+          <div class="when">Tue, Jan 5</div>
+          <div><p class="where">Norway House, Minneapolis</p>
+          <p class="what">9 am to 3 pm. Class. Zoom with Dialogpilotene, a presentation by Norway House staff, and travel orientation.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-06">
+          <div class="when">Wed, Jan 6</div>
+          <div><p class="where">St. Thomas or Norway House <span class="tbc">(to be confirmed)</span></p>
+          <p class="what">Class. Time to be confirmed.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-07">
+          <div class="when">Thu, Jan 7</div>
+          <div><p class="where">Minneapolis–St. Paul Airport (MSP)</p>
+          <p class="what">3:30 pm depart MSP on Delta 160 to Amsterdam. <span class="tbc">Meeting time and place at the airport to be confirmed.</span></p></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="leg abroad" id="lillehammer">
+      <div class="leg-title"><h3>Lillehammer</h3><span class="stay">Scandic Victoria, Jan 8 to 11</span></div>
+      <ul class="days">
+        <li class="day" data-start="2027-01-08">
+          <div class="when">Fri, Jan 8</div>
+          <div><p class="where">Oslo to Lillehammer</p>
+          <p class="what">6:50 am arrive Amsterdam. 10:05 am depart Amsterdam (KLM). 11:50 am arrive Oslo. 1:00 pm train to Lillehammer. About 3 pm arrive at the hotel. 4 to 5 pm group dinner.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-09">
+          <div class="when">Sat, Jan 9</div>
+          <div><p class="where">Lillehammer</p>
+          <p class="what">9:00 to 9:30 am morning group check-in. Short class with Hans and Ryan in the hotel meeting room, time to be confirmed. The rest of the day is free.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-10">
+          <div class="when">Sun, Jan 10</div>
+          <div><p class="where">Lillehammer, Scandic Victoria meeting room</p>
+          <p class="what">9:00 to 9:15 am morning group check-in. Free until 4 pm. 4 to 7 pm Dialogpilotene session with Tonje Kristoffersen and Lisa Esohel Knudsen: introductions and the Norwegian context of religious diversity.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-11">
+          <div class="when">Mon, Jan 11</div>
+          <div><p class="where">Lillehammer to Oslo</p>
+          <p class="what">9 am public dialogue (Folkedialog) at the Nansen Center for Peace, facilitated by Christiane Seehausen. Buy lunch for the train. Afternoon train to Oslo and check-in at the Radisson Blu Plaza. You receive your 30-day Oslo transit pass. 3-hour guided walking tour, starting and ending at the hotel.</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="leg abroad" id="oslo">
+      <div class="leg-title"><h3>Oslo</h3><span class="stay">Radisson Blu Plaza, Jan 11 to 24</span></div>
+      <ul class="days">
+        <li class="day" data-start="2027-01-12">
+          <div class="when">Tue, Jan 12</div>
+          <div><p class="where">Faculty of Theology, University of Oslo</p>
+          <p class="what">9 am to 12:30 pm. Welcome, a "What is dialogue?" exercise, a lecture by Professor Claudia Lenz, and a group debrief.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-13">
+          <div class="when">Wed, Jan 13</div>
+          <div><p class="where">Faculty of Theology, University of Oslo, or MF Norwegian School of Theology <span class="tbc">(to be confirmed)</span></p>
+          <p class="what">10 am to 1 pm. Lecture by Dr. Sturla Stålsett and a dialogue workshop with the dialogue pilots. Weekend plans due to Hans today.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-14">
+          <div class="when">Thu, Jan 14</div>
+          <div><p class="where">Dialogpilotene offices or the Norwegian Humanist Association <span class="tbc">(to be confirmed)</span></p>
+          <p class="what">About 9 am to 2:30 pm. Identity exercises. Lunch at a café.</p></div>
+        </li>
+        <li class="day free" data-start="2027-01-15" data-end="2027-01-17">
+          <div class="when">Fri, Jan 15 to Sun, Jan 17</div>
+          <div><p class="where">Free weekend</p>
+          <p class="what">Stay in Oslo or travel. Be back for class Monday morning. See <a href="fjord.html">Visit a Fjord</a> for one option.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-18">
+          <div class="when">Mon, Jan 18</div>
+          <div><p class="where">Oslo Bishop's Office</p>
+          <p class="what">9 am to 1 pm. Building tour with Petter Rønneberg, a greeting from Bishop Sunniva Gylver, a lecture by Dr. Lars Laird Iversen, catered lunch, and an exercise on controversial topics.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-19">
+          <div class="when">Tue, Jan 19</div>
+          <div><p class="where">Faculty of Theology, University of Oslo</p>
+          <p class="what">10 am to 1 pm. Lecture by Dr. Anne Hege Grung on gender and culture, and a session with Beyar Mikail.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-20">
+          <div class="when">Wed, Jan 20</div>
+          <div><p class="where">Center for Studies of the Holocaust and Religious Minorities (HL-senteret)</p>
+          <p class="what">10 am to 2:15 pm. Lectures by Cora Alexa Døving, Øivind Kopperud, and Vibeke Moe, the exhibitions, and a group lunch. Optional visit to the Norsk Folkemuseum afterward (closes 4 pm).</p></div>
+        </li>
+        <li class="day" data-start="2027-01-21">
+          <div class="when">Thu, Jan 21</div>
+          <div><p class="where">22 July Center</p>
+          <p class="what">9:30 am to 2 pm. Visit and discussion with staff, lunch at the Center café or nearby. <span class="tbc">Speakers to be confirmed.</span></p></div>
+        </li>
+        <li class="day" data-start="2027-01-22">
+          <div class="when">Fri, Jan 22</div>
+          <div><p class="where">Nobel Peace Center</p>
+          <p class="what">9 am to 4 pm. Exercises, the Paths to Peace exhibition, lunch nearby, course evaluation, and farewell. Final program day in Norway.</p></div>
+        </li>
+        <li class="day free" data-start="2027-01-23">
+          <div class="when">Sat, Jan 23</div>
+          <div><p class="where">Free day</p>
+          <p class="what">Pack tonight. The coach leaves at 3:30 am.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-24">
+          <div class="when">Sun, Jan 24</div>
+          <div><p class="where">Oslo to Minneapolis–St. Paul</p>
+          <p class="what">3:15 am breakfast boxes at the hotel. 3:30 am coach to Oslo Airport. 6:30 am depart Oslo (KLM 1196) via Amsterdam. 2:30 pm arrive MSP. Arrange your own ride home.</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="leg" id="minnesota-after">
+      <div class="leg-title"><h3>Minnesota</h3></div>
+      <ul class="days">
+        <li class="day free" data-start="2027-01-25" data-end="2027-01-26">
+          <div class="when">Mon, Jan 25 to Tue, Jan 26</div>
+          <div><p class="where">No class</p></div>
+        </li>
+        <li class="day" data-start="2027-01-27">
+          <div class="when">Wed, Jan 27</div>
+          <div><p class="where">Jay Phillips Center, St. Thomas</p>
+          <p class="what">9:30 to 11:30 am. Optional final paper writing workshop.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-28">
+          <div class="when">Thu, Jan 28</div>
+          <div><p class="where">St. Thomas <span class="tbc">(room to be confirmed)</span></p>
+          <p class="what">9 to 10:30 am. Required breakfast with Minnesota Multifaith Network interfaith leaders.</p></div>
+        </li>
+        <li class="day" data-start="2027-01-29">
+          <div class="when">Fri, Jan 29</div>
+          <div><p class="where">Final paper due</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="links" aria-labelledby="links-title">
+    <h2 id="links-title">Links</h2>
+    <ul class="link-list">
+      <li><a href="#">Canvas course site<span class="note">Link coming</span></a></li>
+      <li><a href="https://stthomas.via-trm.com/program_brochure/33565">St. Thomas Study Abroad program page</a></li>
+      <li><a href="https://www.dialogpilotene.no/">Dialogpilotene (The Dialogue Pilots)</a></li>
+      <li><a href="https://wise.com/us/currency-converter/usd-to-nok-rate?amount=10">Currency converter<span class="note">US dollars to Norwegian kroner</span></a></li>
+      <li><a href="https://www.visitoslo.com/en/activities-and-attractions/attractions/museum/">Museums in Oslo</a></li>
+      <li><a href="https://www.visitoslo.com/en/activities-and-attractions/10-suggestions/winter-day/">10 things to do in Oslo on a winter day</a></li>
+      <li><a href="https://www.meganstarr.com/weekend-trips-from-oslo/">10 weekend trips from Oslo</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>THEO 228, University of St. Thomas. Faculty: Hans Gustafson and Ryan Dulkin.</p>
+  <p>Last updated October 1, 2026.</p>
+</footer>
+
+<script>
+  // Highlight today's row during the course and show a jump link.
+  (function () {
+    var now = new Date();
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var today = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+    var rows = document.querySelectorAll(".day[data-start]");
+    for (var i = 0; i < rows.length; i++) {
+      var start = rows[i].getAttribute("data-start");
+      var end = rows[i].getAttribute("data-end") || start;
+      if (today >= start && today <= end) {
+        rows[i].classList.add("is-today");
+        rows[i].id = "today";
+        var tag = document.createElement("span");
+        tag.className = "today-tag";
+        tag.textContent = "Today";
+        rows[i].querySelector(".when").appendChild(tag);
+        var jump = document.getElementById("today-jump");
+        jump.href = "#today";
+        jump.classList.add("is-visible");
+        break;
+      }
+    }
+  })();
+</script>
+
+</body>
+</html>

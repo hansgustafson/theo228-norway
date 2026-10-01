@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Orientation | THEO 228 Norway, J-Term 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --snow: #F4F7F9;
+    --white: #FFFFFF;
+    --ink: #14273A;
+    --fjord: #4F6D85;
+    --frost: #DCE5EC;
+    --red: #C8102E;
+    --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--snow);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  a { color: var(--ink); text-underline-offset: 3px; }
+  a:hover { color: var(--red); }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+  /* Header and navigation */
+  .site-header {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .site-header .inner {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 2rem;
+  }
+  .wordmark {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+  .wordmark span { font-weight: 400; opacity: 0.75; }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.97rem;
+    padding: 0.25rem 0;
+    display: inline-block;
+  }
+  nav a:hover { color: var(--white); text-decoration: underline; }
+  nav a[aria-current="page"] { border-bottom: 2px solid var(--white); }
+  nav a.emergency {
+    background: var(--red);
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .emergency-mobile { display: none; }
+  @media (max-width: 720px) {
+    .site-header .inner { justify-content: space-between; }
+    .emergency-mobile {
+      display: inline-block;
+      color: var(--white);
+      text-decoration: none;
+      background: var(--red);
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+    nav li.nav-emergency { display: none; }
+    nav { width: 100%; overflow-x: auto; }
+    nav ul { flex-wrap: nowrap; padding-bottom: 0.25rem; }
+    nav a { white-space: nowrap; }
+  }
+
+  main { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Photo banner */
+  .hero-photo {
+    position: relative;
+    height: clamp(26rem, 68vh, 42rem);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(20,39,58,0) 35%, rgba(20,39,58,0.88) 100%);
+  }
+  .hero-text {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    color: var(--white);
+  }
+  .hero-text .subtitle { color: rgba(255,255,255,0.88); }
+  .credit {
+    position: absolute;
+    z-index: 1;
+    right: 0.75rem;
+    bottom: 0.4rem;
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .credit a { color: inherit; }
+  @media (min-width: 900px) {
+    /* Widen the photo so the person sits right of the title */
+    .hero-photo img { inset: auto; top: 0; left: 0; width: 124%; height: 100%; object-position: 50% 12%; }
+    .hero-text h1 { font-size: clamp(2.6rem, 4.6vw, 3.9rem); max-width: 11ch; }
+  }
+  @media (max-width: 899px) {
+    /* On phones and tablets, the title sits below the photo */
+    .hero-photo { height: auto; }
+    .hero-photo img {
+      position: relative;
+      display: block;
+      height: clamp(15rem, 46vh, 26rem);
+      object-position: 50% 30%;
+    }
+    .hero-photo::after { display: none; }
+    .hero-text { position: static; padding: 1.5rem 1.25rem 2.25rem; }
+    .credit { top: 0.4rem; bottom: auto; }
+  }
+
+  .credit a:hover { color: var(--white); }
+
+  /* Hero */
+  .hero { padding: 0.5rem 0 2.75rem; }
+  .course-code { margin: 0 0 0.5rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.3rem, 6.5vw, 4.4rem);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+    text-shadow: 0 1px 12px rgba(20,39,58,0.35);
+  }
+  .subtitle {
+    margin: 1rem 0 0;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    color: var(--fjord);
+    max-width: 38ch;
+  }
+
+  /* Route line: the four legs of the course */
+  .route {
+    list-style: none;
+    margin: 2.75rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+  }
+  .route::before {
+    content: "";
+    position: absolute;
+    top: 0.55rem;
+    left: 0.55rem;
+    right: 0.55rem;
+    border-top: 2px solid var(--ink);
+  }
+  .route li { position: relative; padding-top: 1.9rem; padding-right: 0.75rem; }
+  .route li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--snow);
+    border: 3px solid var(--ink);
+  }
+  .route li.abroad::before { background: var(--ink); }
+  .route a { text-decoration: none; display: block; }
+  .route .place { display: block; font-weight: 700; font-size: 1.15rem; }
+  .route .dates { display: block; color: var(--fjord); font-size: 0.95rem; }
+  .route a:hover .place { color: var(--red); }
+  @media (max-width: 640px) {
+    .route { grid-template-columns: 1fr; gap: 1.1rem; }
+    .route::before {
+      top: 0.55rem; bottom: 2.6rem; left: 0.55rem; right: auto;
+      border-top: 0; border-left: 2px solid var(--ink);
+    }
+    .route li { padding: 0 0 0 2.1rem; }
+  }
+
+  .today-jump {
+    display: none;
+    margin-top: 2rem;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border-radius: 3px;
+  }
+  .today-jump.is-visible { display: inline-block; }
+  .today-jump:hover { color: var(--white); text-decoration: underline; }
+
+  /* Notices */
+  .notices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--frost);
+    border: 1px solid var(--frost);
+    margin: 0 0 3.5rem;
+  }
+  .notice { background: var(--white); padding: 1.25rem 1.25rem 1.4rem; }
+  .notice h2 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 700; }
+  .notice p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 860px) { .notices { grid-template-columns: 1fr; } }
+
+  /* Schedule */
+  .schedule-head { max-width: 42rem; margin-bottom: 1.5rem; }
+  .schedule-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin: 0 0 0.6rem; letter-spacing: -0.01em; }
+  .schedule-head p { margin: 0; color: var(--fjord); }
+
+  .leg { margin: 2.5rem 0 0; scroll-margin-top: 1rem; }
+  .leg-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0 0 0.75rem;
+    padding-left: 1.85rem;
+    position: relative;
+  }
+  .leg-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background: var(--snow);
+  }
+  .leg.abroad .leg-title::before { background: var(--ink); }
+  .leg-title h3 { margin: 0; font-size: 1.4rem; }
+  .leg-title .stay { color: var(--fjord); font-size: 0.97rem; }
+
+  .days { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--frost); }
+  .day {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0.25rem 1.5rem;
+    padding: 1rem 0 1rem 0.9rem;
+    border-bottom: 1px solid var(--frost);
+    border-left: 4px solid transparent;
+    scroll-margin-top: 1rem;
+  }
+  .day .when { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .day .where { margin: 0 0 0.2rem; font-weight: 500; }
+  .day .what { margin: 0; max-width: 62ch; }
+  .day.free .what { color: var(--fjord); }
+  .day.is-today { background: var(--white); border-left-color: var(--red); }
+  .today-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.05rem 0.45rem;
+    border-radius: 3px;
+    vertical-align: 0.1em;
+  }
+  .tbc { color: var(--fjord); font-style: italic; }
+  @media (max-width: 640px) {
+    .day { grid-template-columns: 1fr; padding-left: 0.75rem; }
+  }
+
+  /* Links */
+  .links { margin: 4rem 0 0; padding: 2.5rem 0 0; border-top: 2px solid var(--ink); }
+  .links h2 { margin: 0 0 1.25rem; font-size: 1.6rem; }
+  .link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 2.5rem;
+  }
+  .link-list li { border-bottom: 1px solid var(--frost); }
+  .link-list a { display: block; padding: 0.8rem 0; font-weight: 500; }
+  .link-list .note { display: block; font-weight: 400; color: var(--fjord); font-size: 0.93rem; }
+  @media (max-width: 640px) { .link-list { grid-template-columns: 1fr; } }
+
+  footer {
+    max-width: 68rem;
+    margin: 4rem auto 0;
+    padding: 1.5rem 1.25rem 3rem;
+    color: var(--fjord);
+    font-size: 0.93rem;
+    border-top: 1px solid var(--frost);
+  }
+  footer p { margin: 0 0 0.35rem; }
+
+  /* Inner pages */
+  .page-head {
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    gap: 2.5rem;
+    align-items: start;
+    padding: 3rem 0 1rem;
+  }
+  .page-head h1 { max-width: none; text-shadow: none; }
+  .lede { font-size: 1.2rem; color: var(--fjord); max-width: 40ch; margin: 1rem 0 2rem; }
+  .toc ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .toc li { border-bottom: 1px solid var(--frost); }
+  .toc a { display: block; padding: 0.55rem 0; font-weight: 500; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .side-photo { margin: 0; }
+  .side-photo img { display: block; width: 100%; height: auto; }
+  figcaption { font-size: 0.78rem; color: var(--fjord); margin-top: 0.4rem; }
+  figcaption a { color: inherit; }
+  @media (max-width: 820px) {
+    .page-head { grid-template-columns: 1fr; padding-top: 2rem; }
+    .side-photo img { max-height: 22rem; object-fit: cover; object-position: 50% 62%; }
+  }
+
+  .topic { padding: 2.5rem 0 0.5rem; scroll-margin-top: 1rem; }
+  .topic h2 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    margin: 0 0 1rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--ink);
+  }
+  .facts { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+  .facts li { padding: 0.75rem 0; border-bottom: 1px solid var(--frost); }
+  .facts strong { font-weight: 700; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--frost); border: 1px solid var(--frost); max-width: 46rem; margin-bottom: 1rem; }
+  .card { background: var(--white); padding: 1.1rem 1.25rem; }
+  .card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+  .card p { margin: 0; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .intro-line { max-width: 46rem; margin: 0 0 1rem; }
+  .phrases { margin: 0; max-width: 46rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 2.5rem; }
+  .phrases div { display: flex; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--frost); }
+  .phrases dt { font-weight: 700; min-width: 7.5rem; }
+  .phrases dd { margin: 0; }
+  .phrases .say { color: var(--fjord); margin-left: 0.35rem; }
+  @media (max-width: 640px) { .phrases { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="wordmark" href="index.html">THEO 228 <span>J-Term 2027</span></a>
+    <a class="emergency emergency-mobile" href="emergency.html">Emergency</a>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="orientation.html" aria-current="page">Orientation</a></li>
+        <li><a href="maps.html">Maps</a></li>
+        <li><a href="lillehammer.html">Lillehammer</a></li>
+        <li><a href="fjord.html">Visit a Fjord</a></li>
+        <li class="nav-emergency"><a class="emergency" href="emergency.html">Emergency numbers</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="page-intro">
+    <h1>Orientation</h1>
+    <p class="lede">What to know before you go and while you're in Norway. Read it before the pre-program meeting on Nov 5, and keep it handy on your phone.</p>
+    <div class="toc" role="navigation" aria-label="On this page">
+      <ul>
+        <li><a href="#documents">Travel documents</a></li>
+        <li><a href="#flights">Flights and luggage</a></li>
+        <li><a href="#hotels">Where we stay</a></li>
+        <li><a href="#food">Food and money</a></li>
+        <li><a href="#getting-around">Getting around</a></li>
+        <li><a href="#health">Health and safety</a></li>
+        <li><a href="#packing">What to pack</a></li>
+        <li><a href="#culture">Intercultural awareness</a></li>
+        <li><a href="#norwegian">Basic Norwegian</a></li>
+      </ul>
+    </div>
+  </div>
+  <figure class="side-photo">
+    <img src="images/opera-house.jpg" alt="The Oslo Opera House in falling snow, with people walking on its sloped white roof above dark harbor water." width="900" height="1347">
+    <figcaption>Photo: <a href="https://unsplash.com/photos/taxOQpGcjYw">Andreas Rasmussen on Unsplash</a></figcaption>
+  </figure>
+</section>
+
+<section class="topic" id="documents">
+  <h2>Travel documents</h2>
+  <ul class="facts">
+    <li><strong>Passport.</strong> Your passport must be valid for at least three months after we leave Norway on Jan 24, and issued within the last 10 years. Six months of remaining validity is the safer standard. Check the date now. Renewals take weeks.</li>
+    <li><strong>Visa.</strong> U.S. citizens do not need a visa for a stay under 90 days. Carry a copy of the program details, the hotel names, and your return flight in case a border officer asks why you're visiting.</li>
+    <li><strong>ETIAS.</strong> The EU plans a new online travel authorization for U.S. travelers, called ETIAS. As of October 2026 it has not started, and you don't need it yet. If that changes before January, we'll tell you. Avoid websites that charge you to "apply early." They are not official.</li>
+    <li><strong>Border control.</strong> Europe now registers visitors electronically at the border. At passport control in Amsterdam or Oslo, you may have your photo and fingerprints taken. Allow extra time.</li>
+    <li><strong>Students without U.S. passports.</strong> Entry rules differ by citizenship. Check with the Study Abroad office early.</li>
+  </ul>
+</section>
+
+<section class="topic" id="flights">
+  <h2>Flights and luggage</h2>
+  <ul class="facts">
+    <li><strong>Flights.</strong> Your flight is included in the program cost, and St. Thomas books it. You must travel with the group to and from Norway. Flight times are on the <a href="index.html">Home page</a>.</li>
+    <li><strong>Baggage allowance.</strong> Check the allowance on your ticket. Delta and KLM rules vary by fare type, so don't assume a free checked bag.</li>
+    <li><strong>Carry it yourself.</strong> You will move your own luggage on and off trains, and between the train stations and both hotels. Pack only what you can manage alone on icy sidewalks.</li>
+    <li><strong>A day bag.</strong> Bring a backpack for daily use. Most days we leave the hotel for several hours.</li>
+  </ul>
+</section>
+
+<section class="topic" id="hotels">
+  <h2>Where we stay</h2>
+  <div class="two-col">
+    <div class="card">
+      <h3>Lillehammer, Jan 8 to 11</h3>
+      <p>Scandic Victoria, in the center of Lillehammer.</p>
+    </div>
+    <div class="card">
+      <h3>Oslo, Jan 11 to 24</h3>
+      <p><a href="https://www.radissonhotels.com/en-us/hotels/radisson-blu-oslo">Radisson Blu Plaza</a>, next to Oslo Central Station. It has a pool, sauna, and fitness room on its top floors, free for guests.</p>
+    </div>
+  </div>
+  <ul class="facts">
+    <li><strong>Rooms.</strong> You share a double room with another student unless you paid for a single. <span class="tbc">The roommate form and its deadline are coming.</span></li>
+    <li><strong>Minnesota.</strong> During the Minnesota days of the course, you arrange your own housing.</li>
+    <li><strong>Emergency meeting place.</strong> The front desk lobby of whichever hotel we're in.</li>
+    <li><strong>Hotel address.</strong> Take a hotel business card from the front desk and keep it with you. It helps if you get lost or need to show a taxi driver where to go.</li>
+    <li><strong>Laundry.</strong> The hotels offer laundry service for a fee. Most students pack enough clothes to skip it.</li>
+    <li><strong>Wi-Fi.</strong> Free in both hotels, and available in most cafés and public places.</li>
+    <li><strong>Free weekend travel.</strong> If you leave Oslo Jan 15 to 17, your lodging is your own cost. Email Hans your plans by Wed, Jan 13: who you're with, where you're going, when you leave and return, and how to reach you.</li>
+  </ul>
+</section>
+
+<section class="topic" id="food">
+  <h2>Food and money</h2>
+  <ul class="facts">
+    <li><strong>Meals included.</strong> Group dinner on Jan 8 in Lillehammer, catered lunch on Jan 18, group lunch on Jan 20, and breakfast boxes on Jan 24. <span class="tbc">Daily hotel breakfast to be confirmed.</span> All other meals are on you.</li>
+    <li><strong>Costs.</strong> Norway is expensive. As a rough guide from recent years: a mid-range restaurant meal runs 250 to 400 NOK, and fast food or street food 100 to 150 NOK. Use the <a href="https://wise.com/us/currency-converter/usd-to-nok-rate?amount=10">currency converter</a> for today's rate.</li>
+    <li><strong>Saving money.</strong> Grocery stores such as Rema 1000, Kiwi, and Coop Extra are the cheapest option. Many students buy lunch supplies there.</li>
+    <li><strong>Paying.</strong> Cards are accepted almost everywhere, and some places don't take cash at all. Tell your bank you'll be abroad, and check its foreign transaction fees.</li>
+    <li><strong>Dietary needs.</strong> Group meals will accommodate dietary restrictions. Tell Hans or Ryan before departure. Vegetarian, vegan, and gluten-free options are easy to find in Oslo.</li>
+    <li><strong>Alcohol.</strong> The legal age is 18 for beer and wine and 20 for spirits. A pint of beer costs around 90 to 130 NOK. Norwegian drinking culture tends to be reserved, especially in public. Drink responsibly. You represent St. Thomas and Minnesota.</li>
+  </ul>
+</section>
+
+<section class="topic" id="getting-around">
+  <h2>Getting around</h2>
+  <ul class="facts">
+    <li><strong>Oslo transit pass.</strong> On Jan 11 you receive a 30-day pass for Oslo's buses, trams, metro, and local ferries. Keep it on you. Ticket inspectors do check.</li>
+    <li><strong>Lillehammer.</strong> The town center is small and walkable from the hotel.</li>
+    <li><strong>Trains.</strong> Group train travel is arranged for you. For free-weekend trips, book on <a href="https://www.vy.no/en">Vy</a>, and look for "Minipris" fares, which are cheapest when booked early.</li>
+    <li><strong>Daylight.</strong> In mid-January, the sun rises around 9 am and sets around 3:40 pm in Oslo. Plan outdoor time for the early afternoon.</li>
+  </ul>
+</section>
+
+<section class="topic" id="health">
+  <h2>Health and safety</h2>
+  <ul class="facts">
+    <li><strong>Emergencies.</strong> Call 113 for medical emergencies, 112 for police, and 110 for fire. Then tell Hans or Ryan. All numbers are on the <a href="emergency.html">Emergency numbers</a> page.</li>
+    <li><strong>If you feel sick.</strong> Tell Hans or Ryan right away. A pharmacy in Norway is an "apotek."</li>
+    <li><strong>Vaccinations.</strong> None are required for Norway. Make sure your routine vaccines are up to date, and talk with your doctor about the flu shot.</li>
+    <li><strong>Medications.</strong> Bring enough prescription medication for the whole trip, in original packaging, with a letter from your doctor. Bring familiar over-the-counter basics such as ibuprofen.</li>
+    <li><strong>Medical conditions and accommodations.</strong> Inform the Study Abroad office of any condition before departure. If you need disability accommodations, contact St. Thomas Disability Resources early. Tell Hans or Ryan about any needs that affect the program.</li>
+    <li><strong>Mental health.</strong> Culture shock, homesickness, and short winter days can wear on anyone. Talk with Hans or Ryan. St. Thomas counseling offers 24/7 remote support. See <a href="emergency.html">Emergency numbers</a>.</li>
+    <li><strong>Stay together.</strong> Oslo is safe, but move in pairs or groups, especially after dark. Invite classmates along during free time.</li>
+    <li><strong>Watch your belongings.</strong> Pickpocketing happens in crowded places, as in any city.</li>
+    <li><strong>Avoid demonstrations.</strong> Stay away from protests and political gatherings.</li>
+    <li><strong>Travel insurance.</strong> Check how your health insurance covers you abroad.</li>
+    <li><strong>Drugs.</strong> Cannabis and all other recreational drugs are illegal in Norway. Penalties are serious, and the program has zero tolerance.</li>
+    <li><strong>Conduct.</strong> The St. Thomas student code of conduct applies abroad. Violations can lead to removal from the program.</li>
+  </ul>
+</section>
+
+<section class="topic" id="packing">
+  <h2>What to pack</h2>
+  <ul class="facts">
+    <li><strong>Clothing.</strong> Oslo in January is usually a little milder than Minnesota, between about 20°F and 32°F, with snow, ice, and sometimes rain. Lillehammer is colder. Pack layers: thermal underwear, sweaters, a waterproof winter coat, hat, gloves, scarf, and warm socks. We move between outdoors and heated buildings all day.</li>
+    <li><strong>Footwear.</strong> Waterproof winter boots with good tread. Sidewalks are often icy. Many locals use slip-on traction cleats such as Yaktrax. Buy a pair before you go.</li>
+    <li><strong>Swimsuit.</strong> For the hotel pool and sauna.</li>
+    <li><strong>For class.</strong> A notebook, pen, and a laptop or tablet for Canvas.</li>
+    <li><strong>Phone.</strong> Check your carrier's international plan before you leave. WhatsApp is how the group communicates, so install it.</li>
+    <li><strong>Power.</strong> Norway uses Type C and F plugs at 230 volts. Bring a plug adapter. Most phone and laptop chargers handle 230 volts, but check the label on anything else, such as a hair dryer. A portable battery helps on long days.</li>
+    <li><strong>Leave at home.</strong> Expensive jewelry, irreplaceable items, and anything bulky you can buy there, such as large toiletries.</li>
+  </ul>
+</section>
+
+<section class="topic" id="culture">
+  <h2>Intercultural awareness</h2>
+  <ul class="facts">
+    <li><strong>Being a good guest.</strong> Try the "platinum rule": treat others as they would like to be treated. Norwegians value punctuality, direct communication, and personal space. Public spaces, including buses and trams, tend to be quiet.</li>
+    <li><strong>Values and norms.</strong> Norwegian society places a high value on trust, equality, and modesty. People can seem reserved with strangers and are direct once they know you. You may hear about Janteloven, the "law of Jante," a cultural attitude that discourages boasting or setting yourself above others. It contrasts with the American habit of standing out.</li>
+    <li><strong>Diversity.</strong> Oslo is increasingly diverse. Norwegians may discuss race, religion, and identity less openly than Americans do. LGBTQ+ rights are protected by law, and freedom of religion is a founding principle.</li>
+    <li><strong>Minnesota and Norway.</strong> The two share cold winters, outdoor sports, and a long migration history. Don't overstate the similarity. Modern Norway differs from Minnesota in social values and politics, and we'll explore how during the course.</li>
+    <li><strong>Food culture.</strong> Expect fish, root vegetables, and brown cheese (brunost). Lunch is often a cold open-faced sandwich, and dinner is the main meal.</li>
+    <li><strong>Dress.</strong> Norwegians dress for the weather. Practical, warm clothing is normal everywhere. For formal visits, business casual works.</li>
+    <li><strong>Representing St. Thomas.</strong> Most Norwegians view Americans positively and also hold critical opinions about the United States. Engage with curiosity and courtesy. Your behavior reflects on you, on St. Thomas, and on Minnesota.</li>
+    <li><strong>Our group.</strong> In our first week in Minnesota, we'll write a group covenant together for dialogue and group work. Start thinking about the kind of community you want to help build.</li>
+  </ul>
+</section>
+
+<section class="topic" id="norwegian">
+  <h2>Basic Norwegian</h2>
+  <p class="intro-line">Most Norwegians speak excellent English. A polite way to start is "Hei, is English okay?" A few words go a long way:</p>
+  <dl class="phrases">
+    <div><dt>Hei</dt><dd>Hello <span class="say">"Hi"</span></dd></div>
+    <div><dt>Takk</dt><dd>Thank you <span class="say">"Tock"</span></dd></div>
+    <div><dt>Unnskyld</dt><dd>Excuse me, sorry <span class="say">"Oon-shild"</span></dd></div>
+    <div><dt>Vær så snill</dt><dd>Please <span class="say">"Vair-show-snill"</span></dd></div>
+    <div><dt>Ja</dt><dd>Yes <span class="say">"Ya"</span></dd></div>
+    <div><dt>Nei</dt><dd>No <span class="say">"Nigh"</span></dd></div>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  <p>THEO 228, University of St. Thomas. Faculty: Hans Gustafson and Ryan Dulkin.</p>
+  <p>Last updated October 1, 2026.</p>
+</footer>
+
+</body>
+</html>
