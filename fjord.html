@@ -12,10 +12,12 @@
   :root {
     --snow: #F4F7F9;
     --white: #FFFFFF;
-    --ink: #14273A;
+    --ink: #212F63;
     --fjord: #4F6D85;
     --frost: #DCE5EC;
-    --red: #C8102E;
+    --red: #EF2D2F;
+    --red-strong: #C8102E;
+    --mn-green: #0B4938;
     --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   * { box-sizing: border-box; }
@@ -75,7 +77,7 @@
   nav a:hover { color: var(--white); text-decoration: underline; }
   nav a[aria-current="page"] { border-bottom: 2px solid var(--white); }
   nav a.emergency {
-    background: var(--red);
+    background: var(--red-strong);
     padding: 0.3rem 0.75rem;
     border-radius: 3px;
     font-weight: 700;
@@ -87,7 +89,7 @@
       display: inline-block;
       color: var(--white);
       text-decoration: none;
-      background: var(--red);
+      background: var(--red-strong);
       padding: 0.3rem 0.7rem;
       border-radius: 3px;
       font-weight: 700;
@@ -120,7 +122,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(20,39,58,0) 35%, rgba(20,39,58,0.88) 100%);
+    background: linear-gradient(to bottom, rgba(33,47,99,0) 35%, rgba(33,47,99,0.88) 100%);
   }
   .hero-text {
     position: absolute;
@@ -175,7 +177,7 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     max-width: 14ch;
-    text-shadow: 0 1px 12px rgba(20,39,58,0.35);
+    text-shadow: 0 1px 12px rgba(33,47,99,0.35);
   }
   .subtitle {
     margin: 1rem 0 0;
@@ -230,7 +232,7 @@
   .today-jump {
     display: none;
     margin-top: 2rem;
-    background: var(--red);
+    background: var(--red-strong);
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
@@ -302,7 +304,7 @@
   .today-tag {
     display: inline-block;
     margin-left: 0.5rem;
-    background: var(--red);
+    background: var(--red-strong);
     color: var(--white);
     font-size: 0.8rem;
     font-weight: 700;
@@ -370,7 +372,7 @@
   .call-list a .num { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
   .call-list.urgent { border-top: 0; }
   .call-list.urgent li { border: 0; margin-bottom: 0.5rem; }
-  .call-list.urgent a { background: var(--red); color: var(--white); padding: 1rem 1.1rem; border-radius: 3px; }
+  .call-list.urgent a { background: var(--red-strong); color: var(--white); padding: 1rem 1.1rem; border-radius: 3px; }
   .call-list.urgent a:hover { background: #A50D26; color: var(--white); }
   .call-list.urgent .num { font-size: 1.7rem; text-decoration: none; }
   .steps { margin: 0; padding-left: 1.4rem; max-width: 46rem; }
@@ -423,6 +425,9 @@
   .phrases dd { margin: 0; }
   .phrases .say { color: var(--fjord); margin-left: 0.35rem; }
   @media (max-width: 640px) { .phrases { grid-template-columns: 1fr; } }
+  .route li:not(.abroad)::before { border-color: var(--mn-green); }
+  .leg:not(.abroad) .leg-title::before { border-color: var(--mn-green); }
+  .leg:not(.abroad) .leg-title h3 { color: var(--mn-green); }
 </style>
 </head>
 <body>
