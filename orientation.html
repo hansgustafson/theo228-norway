@@ -12,10 +12,12 @@
   :root {
     --snow: #F4F7F9;
     --white: #FFFFFF;
-    --ink: #14273A;
+    --ink: #212F63;
     --fjord: #4F6D85;
     --frost: #DCE5EC;
-    --red: #C8102E;
+    --red: #EF2D2F;
+    --red-strong: #C8102E;
+    --mn-green: #0B4938;
     --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   * { box-sizing: border-box; }
@@ -75,7 +77,7 @@
   nav a:hover { color: var(--white); text-decoration: underline; }
   nav a[aria-current="page"] { border-bottom: 2px solid var(--white); }
   nav a.emergency {
-    background: var(--red);
+    background: var(--red-strong);
     padding: 0.3rem 0.75rem;
     border-radius: 3px;
     font-weight: 700;
@@ -87,7 +89,7 @@
       display: inline-block;
       color: var(--white);
       text-decoration: none;
-      background: var(--red);
+      background: var(--red-strong);
       padding: 0.3rem 0.7rem;
       border-radius: 3px;
       font-weight: 700;
@@ -120,7 +122,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(20,39,58,0) 35%, rgba(20,39,58,0.88) 100%);
+    background: linear-gradient(to bottom, rgba(33,47,99,0) 35%, rgba(33,47,99,0.88) 100%);
   }
   .hero-text {
     position: absolute;
@@ -175,7 +177,7 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     max-width: 14ch;
-    text-shadow: 0 1px 12px rgba(20,39,58,0.35);
+    text-shadow: 0 1px 12px rgba(33,47,99,0.35);
   }
   .subtitle {
     margin: 1rem 0 0;
@@ -230,7 +232,7 @@
   .today-jump {
     display: none;
     margin-top: 2rem;
-    background: var(--red);
+    background: var(--red-strong);
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
@@ -302,7 +304,7 @@
   .today-tag {
     display: inline-block;
     margin-left: 0.5rem;
-    background: var(--red);
+    background: var(--red-strong);
     color: var(--white);
     font-size: 0.8rem;
     font-weight: 700;
@@ -386,6 +388,9 @@
   .phrases dd { margin: 0; }
   .phrases .say { color: var(--fjord); margin-left: 0.35rem; }
   @media (max-width: 640px) { .phrases { grid-template-columns: 1fr; } }
+  .route li:not(.abroad)::before { border-color: var(--mn-green); }
+  .leg:not(.abroad) .leg-title::before { border-color: var(--mn-green); }
+  .leg:not(.abroad) .leg-title h3 { color: var(--mn-green); }
 </style>
 </head>
 <body>
@@ -466,7 +471,7 @@
     </div>
   </div>
   <ul class="facts">
-    <li><strong>Rooms.</strong> You share a double room with another student unless you paid for a single. <span class="tbc">The roommate form and its deadline are coming.</span></li>
+    <li><strong>Rooms.</strong> In Lillehammer you share a room with two other students. In Oslo you share a room with one other student. A roommate form goes out after the Nov 5 meeting.</li>
     <li><strong>Minnesota.</strong> During the Minnesota days of the course, you arrange your own housing.</li>
     <li><strong>Emergency meeting place.</strong> The front desk lobby of whichever hotel we're in.</li>
     <li><strong>Hotel address.</strong> Take a hotel business card from the front desk and keep it with you. It helps if you get lost or need to show a taxi driver where to go.</li>
@@ -479,11 +484,11 @@
 <section class="topic" id="food">
   <h2>Food and money</h2>
   <ul class="facts">
-    <li><strong>Meals included.</strong> Group dinner on Jan 8 in Lillehammer, catered lunch on Jan 18, group lunch on Jan 20, and breakfast boxes on Jan 24. <span class="tbc">Daily hotel breakfast to be confirmed.</span> All other meals are on you.</li>
+    <li><strong>Meals included.</strong> Breakfast every day at both hotels, group dinner on Jan 8 in Lillehammer, catered lunch on Jan 18, group lunch on Jan 20, and breakfast boxes on Jan 24. All other meals are on you.</li>
     <li><strong>Costs.</strong> Norway is expensive. As a rough guide from recent years: a mid-range restaurant meal runs 250 to 400 NOK, and fast food or street food 100 to 150 NOK. Use the <a href="https://wise.com/us/currency-converter/usd-to-nok-rate?amount=10">currency converter</a> for today's rate.</li>
     <li><strong>Saving money.</strong> Grocery stores such as Rema 1000, Kiwi, and Coop Extra are the cheapest option. Many students buy lunch supplies there.</li>
     <li><strong>Paying.</strong> Cards are accepted almost everywhere, and some places don't take cash at all. Tell your bank you'll be abroad, and check its foreign transaction fees.</li>
-    <li><strong>Dietary needs.</strong> Group meals will accommodate dietary restrictions. Tell Hans or Ryan before departure. Vegetarian, vegan, and gluten-free options are easy to find in Oslo.</li>
+    <li><strong>Dietary needs.</strong> Group meals will accommodate dietary restrictions. List yours on the Study Abroad pre-departure forms. The Study Abroad office passes them to our partners in Norway. Vegetarian, vegan, and gluten-free options are easy to find in Oslo.</li>
     <li><strong>Alcohol.</strong> The legal age is 18 for beer and wine and 20 for spirits. A pint of beer costs around 90 to 130 NOK. Norwegian drinking culture tends to be reserved, especially in public. Drink responsibly. You represent St. Thomas and Minnesota.</li>
   </ul>
 </section>
@@ -504,7 +509,7 @@
     <li><strong>Emergencies.</strong> Call 113 for medical emergencies, 112 for police, and 110 for fire. Then tell Hans or Ryan. All numbers are on the <a href="emergency.html">Emergency numbers</a> page.</li>
     <li><strong>If you feel sick.</strong> Tell Hans or Ryan right away. A pharmacy in Norway is an "apotek."</li>
     <li><strong>Vaccinations.</strong> None are required for Norway. Make sure your routine vaccines are up to date, and talk with your doctor about the flu shot.</li>
-    <li><strong>Medications.</strong> Bring enough prescription medication for the whole trip, in original packaging, with a letter from your doctor. Bring familiar over-the-counter basics such as ibuprofen.</li>
+    <li><strong>Medications.</strong> Bring enough prescription medication for the whole program, in original packaging, with a letter from your doctor. Bring familiar over-the-counter basics such as ibuprofen.</li>
     <li><strong>Medical conditions and accommodations.</strong> Inform the Study Abroad office of any condition before departure. If you need disability accommodations, contact St. Thomas Disability Resources early. Tell Hans or Ryan about any needs that affect the program.</li>
     <li><strong>Mental health.</strong> Culture shock, homesickness, and short winter days can wear on anyone. Talk with Hans or Ryan. St. Thomas counseling offers 24/7 remote support. See <a href="emergency.html">Emergency numbers</a>.</li>
     <li><strong>Stay together.</strong> Oslo is safe, but move in pairs or groups, especially after dark. Invite classmates along during free time.</li>
@@ -539,7 +544,7 @@
     <li><strong>Food culture.</strong> Expect fish, root vegetables, and brown cheese (brunost). Lunch is often a cold open-faced sandwich, and dinner is the main meal.</li>
     <li><strong>Dress.</strong> Norwegians dress for the weather. Practical, warm clothing is normal everywhere. For formal visits, business casual works.</li>
     <li><strong>Representing St. Thomas.</strong> Most Norwegians view Americans positively and also hold critical opinions about the United States. Engage with curiosity and courtesy. Your behavior reflects on you, on St. Thomas, and on Minnesota.</li>
-    <li><strong>Our group.</strong> In our first week in Minnesota, we'll write a group covenant together for dialogue and group work. Start thinking about the kind of community you want to help build.</li>
+    <li><strong>Our group.</strong> In our first days in Minnesota, we'll write a group covenant together for dialogue and group work. Start thinking about the kind of community you want to help build.</li>
   </ul>
 </section>
 
@@ -560,7 +565,7 @@
 
 <footer>
   <p>THEO 228, University of St. Thomas. Faculty: Hans Gustafson and Ryan Dulkin.</p>
-  <p>Last updated October 1, 2026.</p>
+  <p>Last updated October 27, 2026.</p>
 </footer>
 
 </body>

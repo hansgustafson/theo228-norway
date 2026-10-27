@@ -12,10 +12,12 @@
   :root {
     --snow: #F4F7F9;
     --white: #FFFFFF;
-    --ink: #14273A;
+    --ink: #212F63;
     --fjord: #4F6D85;
     --frost: #DCE5EC;
-    --red: #C8102E;
+    --red: #EF2D2F;
+    --red-strong: #C8102E;
+    --mn-green: #0B4938;
     --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   * { box-sizing: border-box; }
@@ -75,7 +77,7 @@
   nav a:hover { color: var(--white); text-decoration: underline; }
   nav a[aria-current="page"] { border-bottom: 2px solid var(--white); }
   nav a.emergency {
-    background: var(--red);
+    background: var(--red-strong);
     padding: 0.3rem 0.75rem;
     border-radius: 3px;
     font-weight: 700;
@@ -87,7 +89,7 @@
       display: inline-block;
       color: var(--white);
       text-decoration: none;
-      background: var(--red);
+      background: var(--red-strong);
       padding: 0.3rem 0.7rem;
       border-radius: 3px;
       font-weight: 700;
@@ -120,7 +122,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(20,39,58,0) 35%, rgba(20,39,58,0.88) 100%);
+    background: linear-gradient(to bottom, rgba(33,47,99,0) 35%, rgba(33,47,99,0.88) 100%);
   }
   .hero-text {
     position: absolute;
@@ -175,7 +177,7 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     max-width: 14ch;
-    text-shadow: 0 1px 12px rgba(20,39,58,0.35);
+    text-shadow: 0 1px 12px rgba(33,47,99,0.35);
   }
   .subtitle {
     margin: 1rem 0 0;
@@ -230,7 +232,7 @@
   .today-jump {
     display: none;
     margin-top: 2rem;
-    background: var(--red);
+    background: var(--red-strong);
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
@@ -302,7 +304,7 @@
   .today-tag {
     display: inline-block;
     margin-left: 0.5rem;
-    background: var(--red);
+    background: var(--red-strong);
     color: var(--white);
     font-size: 0.8rem;
     font-weight: 700;
@@ -340,6 +342,9 @@
     border-top: 1px solid var(--frost);
   }
   footer p { margin: 0 0 0.35rem; }
+  .route li:not(.abroad)::before { border-color: var(--mn-green); }
+  .leg:not(.abroad) .leg-title::before { border-color: var(--mn-green); }
+  .leg:not(.abroad) .leg-title h3 { color: var(--mn-green); }
 </style>
 </head>
 <body>
@@ -369,7 +374,7 @@
   <div class="hero-text">
     <p class="course-code">THEO 228, J-Term 2027</p>
     <h1>From Frozen Lakes to Frosty Fjords</h1>
-    <p class="subtitle">Dialogue, Diversity, and Leadership in Minnesota and Norway</p>
+    <p class="subtitle">Dialogue and Religious Diversity in Minnesota and Norway</p>
   </div>
   <p class="credit">Photo: <a href="https://unsplash.com/photos/2brTcibxOAM">Thomas Bjørnstad on Unsplash</a></p>
 </section>
@@ -382,7 +387,7 @@
       <li><a href="#minnesota-before"><span class="place">Minnesota</span><span class="dates">Jan 4 to 7</span></a></li>
       <li class="abroad"><a href="#lillehammer"><span class="place">Lillehammer</span><span class="dates">Jan 8 to 11</span></a></li>
       <li class="abroad"><a href="#oslo"><span class="place">Oslo</span><span class="dates">Jan 11 to 24</span></a></li>
-      <li><a href="#minnesota-after"><span class="place">Minnesota</span><span class="dates">Jan 25 to 29</span></a></li>
+      <li><a href="#minnesota-after"><span class="place">Minnesota</span><span class="dates">Jan 25 to 28</span></a></li>
     </ol>
 
     <a class="today-jump" id="today-jump" href="#">See today's schedule</a>
@@ -406,7 +411,7 @@
   <section aria-labelledby="schedule-title">
     <div class="schedule-head">
       <h2 id="schedule-title">Course schedule</h2>
-      <p>Times may still shift as Dialogpilotene finalizes sessions. During the trip, changes go out in the WhatsApp group. Full details and assignments are on Canvas.</p>
+      <p>Times may still shift. During the program, changes go out in the WhatsApp group. Full details and assignments are on Canvas.</p>
     </div>
 
     <div class="leg" id="minnesota-before">
@@ -415,22 +420,22 @@
         <li class="day" data-start="2027-01-04">
           <div class="when">Mon, Jan 4</div>
           <div><p class="where">Jay Phillips Center, St. Thomas</p>
-          <p class="what">9 am to 3 pm. Class, with a live Zoom session with Dialogpilotene.</p></div>
+          <p class="what">9 am to 12 pm. Class: welcome, a case study on religion in Minnesota, and a lecture on encountering religion in the U.S. and Minnesota.</p></div>
         </li>
         <li class="day" data-start="2027-01-05">
           <div class="when">Tue, Jan 5</div>
-          <div><p class="where">Norway House, Minneapolis</p>
-          <p class="what">9 am to 3 pm. Class. Zoom with Dialogpilotene, a presentation by Norway House staff, and travel orientation.</p></div>
+          <div><p class="where">Norway House, Minneapolis <span class="tbc">(to be confirmed)</span></p>
+          <p class="what">9 am to 12 pm. Class, with an introduction to Norwegian culture by Norway House staff.</p></div>
         </li>
         <li class="day" data-start="2027-01-06">
           <div class="when">Wed, Jan 6</div>
-          <div><p class="where">St. Thomas or Norway House <span class="tbc">(to be confirmed)</span></p>
-          <p class="what">Class. Time to be confirmed.</p></div>
+          <div><p class="where">Jay Phillips Center, St. Thomas</p>
+          <p class="what">9 am to 12 pm. Class, with a live Zoom session with Dialogpilotene <span class="tbc">(time to be confirmed)</span> and final travel orientation.</p></div>
         </li>
         <li class="day" data-start="2027-01-07">
           <div class="when">Thu, Jan 7</div>
           <div><p class="where">Minneapolis–St. Paul Airport (MSP)</p>
-          <p class="what">3:30 pm depart MSP on Delta 160 to Amsterdam. <span class="tbc">Meeting time and place at the airport to be confirmed.</span></p></div>
+          <p class="what">12:30 pm meet at Terminal 1, inside Door 4a, by Delta's main check-in. Find Hans before you check in. 3:30 pm depart MSP on Delta 160 to Amsterdam.</p></div>
         </li>
       </ul>
     </div>
@@ -441,12 +446,12 @@
         <li class="day" data-start="2027-01-08">
           <div class="when">Fri, Jan 8</div>
           <div><p class="where">Oslo to Lillehammer</p>
-          <p class="what">6:50 am arrive Amsterdam. 10:05 am depart Amsterdam (KLM). 11:50 am arrive Oslo. 1:00 pm train to Lillehammer. About 3 pm arrive at the hotel. 4 to 5 pm group dinner.</p></div>
+          <p class="what">6:50 am arrive Amsterdam. 10:05 am depart Amsterdam (KLM). 11:50 am arrive Oslo. 1:59 pm train to Lillehammer, arriving about 3:40 pm. Walk with your luggage to the hotel and check in. 5:30 pm group dinner at Heim Gastropub, Storgata 84. You choose burger, salmon, or vegetarian/vegan in advance.</p></div>
         </li>
         <li class="day" data-start="2027-01-09">
           <div class="when">Sat, Jan 9</div>
           <div><p class="where">Lillehammer</p>
-          <p class="what">9:00 to 9:30 am morning group check-in. Short class with Hans and Ryan in the hotel meeting room, time to be confirmed. The rest of the day is free.</p></div>
+          <p class="what">9:00 am morning group check-in. Class with Hans and Ryan in the hotel meeting room <span class="tbc">(time to be confirmed)</span>. The rest of the day is free.</p></div>
         </li>
         <li class="day" data-start="2027-01-10">
           <div class="when">Sun, Jan 10</div>
@@ -456,7 +461,7 @@
         <li class="day" data-start="2027-01-11">
           <div class="when">Mon, Jan 11</div>
           <div><p class="where">Lillehammer to Oslo</p>
-          <p class="what">9 am public dialogue (Folkedialog) at the Nansen Center for Peace, facilitated by Christiane Seehausen. Buy lunch for the train. Afternoon train to Oslo and check-in at the Radisson Blu Plaza. You receive your 30-day Oslo transit pass. 3-hour guided walking tour, starting and ending at the hotel.</p></div>
+          <p class="what">Check out and leave your bags at the hotel, which holds them until 1:30 pm. 9 am to 12 pm public dialogue (Folkedialog) at the Nansen Center for Peace, about a 15-minute walk from the hotel, facilitated by Christiane Seehausen. Topic: belonging. Lunch in town on your own, and buy food for the train if you like. Collect your bags by 1:30 pm. 1:57 pm train to Oslo. 4:15 pm arrive at Oslo Central Station, walk to the Radisson Blu Plaza, and check in. You receive your 30-day Oslo transit pass. 5:30 pm meet in the lobby for a 3-hour guided walking tour. Dinner on your own.</p></div>
         </li>
       </ul>
     </div>
@@ -466,7 +471,7 @@
       <ul class="days">
         <li class="day" data-start="2027-01-12">
           <div class="when">Tue, Jan 12</div>
-          <div><p class="where">Faculty of Theology, University of Oslo</p>
+          <div><p class="where">Faculty of Theology, University of Oslo (Domus Theologica, Blindernveien 9)</p>
           <p class="what">9 am to 12:30 pm. Welcome, a "What is dialogue?" exercise, a lecture by Professor Claudia Lenz, and a group debrief.</p></div>
         </li>
         <li class="day" data-start="2027-01-13">
@@ -496,17 +501,17 @@
         </li>
         <li class="day" data-start="2027-01-20">
           <div class="when">Wed, Jan 20</div>
-          <div><p class="where">Center for Studies of the Holocaust and Religious Minorities (HL-senteret)</p>
+          <div><p class="where">Center for Studies of the Holocaust and Religious Minorities (HL-senteret), Villa Grande, Bygdøy</p>
           <p class="what">10 am to 2:15 pm. Lectures by Cora Alexa Døving, Øivind Kopperud, and Vibeke Moe, the exhibitions, and a group lunch. Optional visit to the Norsk Folkemuseum afterward (closes 4 pm).</p></div>
         </li>
         <li class="day" data-start="2027-01-21">
           <div class="when">Thu, Jan 21</div>
-          <div><p class="where">22 July Center</p>
+          <div><p class="where">22 July Center, Akersgata 42</p>
           <p class="what">9:30 am to 2 pm. Visit and discussion with staff, lunch at the Center café or nearby. <span class="tbc">Speakers to be confirmed.</span></p></div>
         </li>
         <li class="day" data-start="2027-01-22">
           <div class="when">Fri, Jan 22</div>
-          <div><p class="where">Nobel Peace Center</p>
+          <div><p class="where">Nobel Peace Center, Brynjulf Bulls plass 1</p>
           <p class="what">9 am to 4 pm. Exercises, the Paths to Peace exhibition, lunch nearby, course evaluation, and farewell. Final program day in Norway.</p></div>
         </li>
         <li class="day free" data-start="2027-01-23">
@@ -525,23 +530,25 @@
     <div class="leg" id="minnesota-after">
       <div class="leg-title"><h3>Minnesota</h3></div>
       <ul class="days">
-        <li class="day free" data-start="2027-01-25" data-end="2027-01-26">
-          <div class="when">Mon, Jan 25 to Tue, Jan 26</div>
-          <div><p class="where">No class</p></div>
+        <li class="day free" data-start="2027-01-25">
+          <div class="when">Mon, Jan 25</div>
+          <div><p class="where">No class</p>
+          <p class="what">Martin Luther King Jr. Day (observed).</p></div>
+        </li>
+        <li class="day" data-start="2027-01-26">
+          <div class="when">Tue, Jan 26</div>
+          <div><p class="where">St. Thomas <span class="tbc">(room to be confirmed)</span></p>
+          <p class="what">9 to 10:30 am. Required closing breakfast.</p></div>
         </li>
         <li class="day" data-start="2027-01-27">
           <div class="when">Wed, Jan 27</div>
           <div><p class="where">Jay Phillips Center, St. Thomas</p>
-          <p class="what">9:30 to 11:30 am. Optional final paper writing workshop.</p></div>
+          <p class="what">9:30 to 11:30 am. Optional drop-in writing workshop.</p></div>
         </li>
         <li class="day" data-start="2027-01-28">
           <div class="when">Thu, Jan 28</div>
-          <div><p class="where">St. Thomas <span class="tbc">(room to be confirmed)</span></p>
-          <p class="what">9 to 10:30 am. Required breakfast with Minnesota Multifaith Network interfaith leaders.</p></div>
-        </li>
-        <li class="day" data-start="2027-01-29">
-          <div class="when">Fri, Jan 29</div>
-          <div><p class="where">Final paper due</p></div>
+          <div><p class="where">Jay Phillips Center, St. Thomas</p>
+          <p class="what">9:30 to 11:30 am. Optional drop-in writing workshop.</p></div>
         </li>
       </ul>
     </div>
@@ -564,7 +571,7 @@
 
 <footer>
   <p>THEO 228, University of St. Thomas. Faculty: Hans Gustafson and Ryan Dulkin.</p>
-  <p>Last updated October 1, 2026.</p>
+  <p>Last updated October 27, 2026.</p>
 </footer>
 
 <script>
